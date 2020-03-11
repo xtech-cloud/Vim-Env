@@ -95,8 +95,27 @@ filetype plugin indent on	" 启动自动补全
 let mapleader = ","
 set relativenumber
 
-
 "set autochdir               " 自动切换工作路径
+
+
+""""""""""""""""""""""""""""""""""""""""
+" 通用快捷键定义
+""""""""""""""""""""""""""""""""""""""""
+" map 递归映射
+" 如果使用map定义了 a->b 和 b->c ，按下a等于是按下了c
+" noremap 非递归映射
+" 如果定义了递归映射 b->c，再定义非递归映射 a->b, 按下b等于按下了c
+
+" 打开quickfix
+nnoremap <silent><unique> <leader>qo :copen<CR>
+" 关闭quickfix
+nnoremap <silent><unique> <leader>qc :cclose<CR>
+" 搜索
+nnoremap <unique> <leader>vg :vimgrep /?/./*.*
+" 编译
+nnoremap <unique><F5> :make<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""
 " 文件设置
 """"""""""""""""""""""""""""""""""""""""
@@ -186,7 +205,7 @@ let NERDTreeShowBookmarks=1
 let NERDTreeDirArrows=1
 " 不显示帮助
 let NERDTreeMinimalUI=1
-nmap nt :NERDTreeToggle<CR>
+nnoremap <silent><unique> nt :NERDTreeToggle<CR>
 "
 """"""""""""""""""""""""""""""""""""""""
 " Tagbar
@@ -299,7 +318,6 @@ augroup autoformat_settings
     autocmd FileType bzl AutoFormatBuffer buildifier
     autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
     autocmd FileType dart AutoFormatBuffer dartfmt
-    " autocmd FileType go AutoFormatBuffer gofmt
     autocmd FileType gn AutoFormatBuffer gn
     autocmd FileType html,css,json AutoFormatBuffer js-beautify
     autocmd FileType java AutoFormatBuffer google-java-format
@@ -346,6 +364,3 @@ au FileType go nmap <leader>s <Plug>(go-implements)
 au FileType go nmap <leader>i <Plug>(go-info)
 au FileType go nmap <leader>e <Plug>(go-rename)
 
-""""""""""""""""""""""""""""""""""""""""
-" Lang - Go
-""""""""""""""""""""""""""""""""""""""""
