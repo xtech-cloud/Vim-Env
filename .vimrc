@@ -111,9 +111,11 @@ nnoremap <silent><unique> <leader>qo :copen<CR>
 " 关闭quickfix
 nnoremap <silent><unique> <leader>qc :cclose<CR>
 " 搜索
-nnoremap <unique> <leader>vg :vimgrep /?/./*.*
+nnoremap <unique> <leader>vg :vimgrep /?/**/*.?
 " 编译
 nnoremap <unique><F5> :make<CR>
+" 运行
+nnoremap <unique><C-F5> :!make run<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""
